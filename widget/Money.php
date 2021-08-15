@@ -13,6 +13,14 @@ class Money extends Field
 
     protected array $_attrs = ['class' => 'form-inp number'];
 
+    public function setting(array $args)
+    {
+        parent::setting($args);
+        if (isset($args['mathType']) && is_string($args['mathType'])) {
+            $this->mathType = $args['mathType'];
+        }
+    }
+
     protected function code(array $attrs = []): string
     {
         $attrs['type'] = 'text';
