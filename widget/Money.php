@@ -13,7 +13,7 @@ class Money extends Field
 
     protected array $_attrs = ['class' => 'form-inp number'];
 
-    public function setting(array $args)
+    public function setting(array $args):void
     {
         parent::setting($args);
         if (isset($args['mathType']) && is_string($args['mathType'])) {
@@ -31,7 +31,7 @@ class Money extends Field
      * 加入数据库时
      * @param array $data
      */
-    public function joinData(array &$data = [])
+    public function joinData(array &$data = []):void
     {
         $value = $this->getValue();
         if ($this->mathType == 'ceil') {
